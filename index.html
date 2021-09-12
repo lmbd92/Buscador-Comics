@@ -4,18 +4,81 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comics Finder</title>
+    <link rel="stylesheet" href="./styles/style.css" />
     <script
       src="https://kit.fontawesome.com/46da04e41b.js"
       crossorigin="anonymous"
     ></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
-    <title>Buscador Comics</title>
   </head>
   <body>
+    <header class="hero has-background-black">
+      <div class="titulo-img hero-body has-text-centered">
+        <img src="./styles/img/logo-ada-comics.png" alt="" />
+      </div>
+      <img id="banner-img" src="./styles/img/banner-2.png" />
+    </header>
+    <main class='is-fullheight'>
+      <div id="searchContainer">
+        <h2 class="title mt-4">Búsqueda</h2>
+        <div class="control has-icons-left has-icons-right">
+          <input
+            class="input is-medium"
+            type="text"
+            placeholder="Ingresá tu busqueda"
+          />
+          <span class="icon is-left">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+        
+        <div class="search-inner-container mt-4">
+          <div class="sort-container is-inline">
+
+            <label for="search-type subtitle">TIPO</label>
+            <div class="select">
+              <select>
+                <option value="comics">Comics</option>
+                <option value="personajes">Personajes</option>
+              </select>
+            </div>
+
+            <label for="search-sort subtitle">ORDEN</label>
+            <div class="select">
+              <select name="search-sort" id="search-sort">
+                <option value="name" class="character-option">A-Z</option>
+                <option value="-name" class="character-option">Z-A</option>
+                <option value="-onsaleDate" class="comic-option">
+                  Más nuevos
+                </option>
+                <option value="onsaleDate" class="comic-option">
+                  Más viejos
+                </option>
+              </select>
+            </div>
+                     
+        </div>
+ 
+            <div class="buttons are-medium mt-4 ">
+              <button class="button search-button is-fullwidth is-dark" type="button">BUSCAR</button>
+            </div>
+        </div>
+      </div>
+      <section id="resultsContainer">
+        <h2 class="title m-4">Resultados</h2>
+        <div id="appDiv"></div>
+    </section>
+    </main>
+    
+    <footer class="footer has-background-black">
+      <div class="content has-text-centered">
+        <p class='has-text-white subtitle'>Made with ❤️ by Lina + Fabi</p>
+      </div>
+    </footer>
     <script src="./main.js"></script>
+    <script src="./comic.js"></script>
   </body>
-</html>
