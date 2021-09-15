@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@types/es6-promise": "^3.3.0"
+  },
+  "dependencies": {
+    "cross-fetch": "^3.1.4",
+    "node-fetch": "^3.0.0"
+  }
+}
