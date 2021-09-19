@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,25 +34,30 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
-var environment_1 = require("./assets/environment");
-var cross_fetch_1 = require("cross-fetch");
-var url = environment_1.environment.BASE_URL + "/comics?ts=10&apikey=" + environment_1.environment.API_KEY + "&hash=" + environment_1.environment.HASH;
-//const $ = (selector) => document.querySelector(selector);
+var _this = this;
+var environment = {
+    BASE_URL: "https://gateway.marvel.com/v1/public",
+    API_KEY: "9be68966861f4d97e1a097d75e81804f",
+    HASH: "9bb93119275cabbd09f46a03eebf6a5d"
+};
+var generateUrl = function (endpoint) { return "http://gateway.marvel.com/v1/public/" + endpoint + "?ts=10&apikey=9be68966861f4d97e1a097d75e81804f&hash=9bb93119275cabbd09f46a03eebf6a5d"; };
+var url = environment.BASE_URL + "/comics?ts=10&apikey=" + environment.API_KEY + "&hash=" + environment.HASH;
+var $ = function (selector) { return document.querySelector(selector); };
 var comics;
-//Load
-var loadComics = function (url) { return __awaiter(void 0, void 0, void 0, function () {
+var loadComics = function () { return __awaiter(_this, void 0, void 0, function () {
     var marvelComics, res, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
-                return [4 /*yield*/, (0, cross_fetch_1.fetch)(url)];
+                return [4 /*yield*/, fetch(generateUrl('comics'))];
             case 1:
                 res = _a.sent();
                 return [4 /*yield*/, res.json()];
             case 2:
                 marvelComics = _a.sent();
+                console.log(marvelComics);
+                showComics(marvelComics.data.results);
                 return [3 /*break*/, 4];
             case 3:
                 err_1 = _a.sent();
@@ -63,17 +67,12 @@ var loadComics = function (url) { return __awaiter(void 0, void 0, void 0, funct
         }
     });
 }); };
-// const showComics = (comics) => {
-//     const htmlString = comics.map((comic) => {
-//         return `
-//     <div class='card'>
-//       <header class='card-header'>
-//         <p class='card-header-title'>${comic.title}</p>
-//       </header>
-//     </div>
-//     `;
-//     })
-//     .join('');
-//   $('#comicsList').innerHTML = htmlString;
-//   }
-loadComics(url);
+var showComics = function (comics) {
+    var htmlString = comics.map(function (comic) {
+        return "\n    <div class='card'>\n      <header class='card-header'>\n        <p class='card-header-title'>" + comic.title + "</p>\n      </header>\n    </div>\n    ";
+    })
+        .join('');
+    var comicsList = $('#comicsList');
+    comicsList.innerHTML = htmlString;
+};
+loadComics();
