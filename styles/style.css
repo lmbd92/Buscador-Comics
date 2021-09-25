@@ -2,3 +2,10 @@
 main{
     margin: 14px
 }
+.tag__custom {
+    height: auto !important;
+    white-space: unset !important;
+    color: purple !important;
+    width: 100%
+  }
+  

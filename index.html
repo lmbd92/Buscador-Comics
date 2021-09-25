@@ -22,12 +22,31 @@
       </div>
       <img id="banner-img" src="./styles/img/banner-2.png" />
     </header>
-    <main class='is-fullheight'>
+    <main class="is-fullheight m-6">
+      <section class="comicInfo hidden">
+        <img src="" alt="" class="comic-cover" />
+        <div class="comic-details">
+          <h2 class="comic-title"></h2>
+          <h3>Publicado:</h3>
+          <p class="comic-published"></p>
+          <h3>Guionistas:</h3>
+          <p class="comic-writers"></p>
+          <h3>Descripción:</h3>
+          <p class="comic-description"></p>
+        </div>
+      </section>
+      <section class="characterInfo hidden">
+        <img src="" alt="" class="character-portrait" />
+        <div class="character-details">
+          <h2 class="character-name"></h2>
+          <p class="character-description"></p>
+        </div>
+      </section>
       <div id="searchContainer">
         <h2 class="title mt-4">Búsqueda</h2>
         <div class="control has-icons-left has-icons-right">
           <input
-          id="searchBar"
+            id="searchBar"
             class="input is-medium"
             type="text"
             placeholder="Ingresá tu busqueda"
@@ -36,13 +55,12 @@
             <i class="fas fa-search"></i>
           </span>
         </div>
-        
+
         <div class="search-inner-container mt-4">
           <div class="sort-container is-inline">
-
             <label for="search-type subtitle">TIPO</label>
             <div class="select">
-              <select>
+              <select id="search-type">
                 <option value="comics">Comics</option>
                 <option value="personajes">Personajes</option>
               </select>
@@ -61,24 +79,41 @@
                 </option>
               </select>
             </div>
-                     
-        </div>
- 
-            <div class="buttons are-medium mt-4 ">
-              <button class="button search-button is-fullwidth is-dark" type="button">BUSCAR</button>
-            </div>
+          </div>
+          <div class="buttons are-medium mt-4">
+            <button
+              class="button search-button is-fullwidth is-dark"
+              type="button"
+            >
+              BUSCAR
+            </button>
+          </div>
         </div>
       </div>
       <section id="resultsContainer">
         <h2 class="title m-4">Resultados</h2>
-        <div id="comicsList"></div>
-    </section>
+        <p class="results-count subtitle">
+          <span class="results-number">0</span> RESULTADOS
+        </p>
+        <div class="results">
+          <div
+            id="comicsList"
+            class="is-vcentered columns is-multiline is-mobile"
+          ></div>
+          <div
+            id="charactersList"
+            class="is-vcentered columns is-multiline is-mobile"
+          ></div>
+        </div>
+      </section>
     </main>
-    
     <footer class="footer has-background-black">
       <div class="content has-text-centered">
-        <p class='has-text-white subtitle'>Made with ❤️ by Lina + Fabi</p>
+        <p class="has-text-white subtitle">Made with ❤️ by Lina + Fabi</p>
       </div>
     </footer>
-    <script src="./main.js"></script>
+    <!--<script type='module' src="./main.js"></script> -->
+    <script src="./comics.js"></script>
+    <!--<script  src="./characters.js"></script>-->
   </body>
+</html>
